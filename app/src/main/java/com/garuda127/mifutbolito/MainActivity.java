@@ -65,11 +65,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     0, rotationSensorReading.length);
         }
         Log.d("MySensor",rotationSensorReading[1] + "");
-        width = cancha.getWidth(); // ancho absoluto en pixels
-        height = cancha.getHeight(); // alto absoluto en pixels
-        // sensor[0]
-        // izquierda +
-        // derecha -
+        width = cancha.getWidth();
+        height = cancha.getHeight();
+
         if(ImgPelota.getX() < 0){
             ImgPelota.setX(0);
         }else if((ImgPelota.getX()+ ImgPelota.getHeight()) > width && width != 0){
@@ -78,9 +76,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             ImgPelota.setX(ImgPelota.getX()-(rotationSensorReading[0]*10));
         }
 
-        // Sensor [1]
-        // arriba -
-        // abajo +
+
         Log.d("Position",(ImgPelota.getY()+ ImgPelota.getWidth())+"");
         if (ImgPelota.getY() < 0){
             ImgPelota.setY(0);
@@ -95,15 +91,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 goles2.setText(((Integer.parseInt(goles2.getText().toString()))+1)+"");
                 ImgPelota.setX(width/2);
                 ImgPelota.setY(height/2);
-                /*goales2 += 1;
-                goal2.setText("Goles: " + goales2);
-                ballon.animate().setDuration(1);
-                x = 0;
-                y = 0;
-                ballon.animate().translationX(x);
-                ballon.animate().translationY(y);
-                ballon.animate().setDuration(350);
-                */
+
                 Log.d("Position","Gol en la porteria 1");
             }
         }
@@ -112,20 +100,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 goles1.setText(((Integer.parseInt(goles1.getText().toString()))+1)+"");
                 ImgPelota.setX(width/2);
                 ImgPelota.setY(height/2);
-                /*goales1 += 1;
-                goal1.setText("Goles: " + goales1);
-                ballon.animate().setDuration(1);
-                x = 0;
-                y = 0;
-                ballon.animate().translationX(x);
-                ballon.animate().translationY(y);
-                ballon.animate().setDuration(350);
-                 */
+
                 Log.d("Position","Gol en la porteria 2");
             }
         }
 
-        // Sensor [2]
+
     }
 
     @Override
