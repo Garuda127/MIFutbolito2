@@ -64,10 +64,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             System.arraycopy(event.values, 0, rotationSensorReading,
                     0, rotationSensorReading.length);
         }
+
         Log.d("MySensor",rotationSensorReading[1] + "");
+
         width = cancha.getWidth();
         height = cancha.getHeight();
-
         if(ImgPelota.getX() < 0){
             ImgPelota.setX(0);
         }else if((ImgPelota.getX()+ ImgPelota.getHeight()) > width && width != 0){
@@ -75,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }else {
             ImgPelota.setX(ImgPelota.getX()-(rotationSensorReading[0]*10));
         }
-
 
         Log.d("Position",(ImgPelota.getY()+ ImgPelota.getWidth())+"");
         if (ImgPelota.getY() < 0){
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             ImgPelota.setY(ImgPelota.getY()+(rotationSensorReading[1]*10));
         }
 
+
         if (ImgPelota.getX() + ImgPelota.getWidth() -15 >= ImgArco1.getX() && ImgPelota.getX() - 15 <= ImgArco1.getX() + ImgArco1.getWidth()){
             if (ImgPelota.getY() + 15 >= ImgArco1.getY() && ImgPelota.getY() + 15 <= ImgArco1.getY() + ImgArco1.getHeight()) {
                 goles2.setText(((Integer.parseInt(goles2.getText().toString()))+1)+"");
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 Log.d("Position","Gol en la porteria 1");
             }
         }
+
         if (ImgPelota.getX() + ImgPelota.getWidth() - 15 >= ImgArco2.getX() && ImgPelota.getX() - 15 <= ImgArco2.getX() + ImgArco2.getWidth()){
             if (ImgPelota.getY() + ImgPelota.getHeight() - 15 >= ImgArco2.getY() && ImgPelota.getY() - 15 <= ImgArco2.getY() + ImgArco2.getHeight()) {
                 goles1.setText(((Integer.parseInt(goles1.getText().toString()))+1)+"");
